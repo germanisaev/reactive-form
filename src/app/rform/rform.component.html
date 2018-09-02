@@ -1,0 +1,22 @@
+<div class="form-container">
+  <h2>Reactive From</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label>
+      Student:
+      <input class="form-control" type="text" formControlName="student">
+    </label>
+
+    <label>
+      Class:
+      <select class="form-control" formControlName="class">
+        <option [value]="opt" *ngFor="let opt of classes">{{opt}}</option>
+      </select>
+    </label>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </form>
+
+  <br>
+  <pre>{{isFrom|json}}</pre>
+</div>
